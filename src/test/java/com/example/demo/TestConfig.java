@@ -8,16 +8,9 @@ import org.testcontainers.elasticsearch.ElasticsearchContainer;
 import org.testcontainers.utility.DockerImageName;
 
 @TestConfiguration(proxyBeanMethods = false)
-public class TestDemoApplication {
-
-    @Bean
-    @ServiceConnection
-    ElasticsearchContainer elasticsearchContainer() {
-        return new ElasticsearchContainer(DockerImageName.parse("docker.elastic.co/elasticsearch/elasticsearch:7.17.10"));
-    }
-
+public class TestConfig {
     public static void main(String[] args) {
-        SpringApplication.from(DemoApplication::main).with(TestDemoApplication.class).run(args);
+        SpringApplication.from(DemoApplication::main).with(TestConfig.class).run(args);
     }
 
 }
